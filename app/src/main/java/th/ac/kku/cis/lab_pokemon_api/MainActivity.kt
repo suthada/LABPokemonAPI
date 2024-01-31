@@ -183,7 +183,10 @@ fun PokemonItem(
 
 data class PokemonDetail(
     val imageUrl: String,
-    val name: String
+    val name: String,
+    val height: Int,
+    val weight: Int,
+    val type: String
 )
 
 @Composable
@@ -197,7 +200,7 @@ fun PokemonDetail(
 
     // Check if the details are available
     if (pokemonDetail != null) {
-        // Display the image and name
+        // Display the image, name, and height
         Column(
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -212,7 +215,23 @@ fun PokemonDetail(
                     .size(200.dp)
                     .padding(bottom = 16.dp)
             )
-            Text(text = pokemonDetail!!.name, style = MaterialTheme.typography.headlineLarge)
+            Text(
+                text = "Name: ${pokemonDetail!!.name}",
+                style = MaterialTheme.typography.headlineLarge
+            )
+            Text(
+                text = "Height: ${pokemonDetail!!.height}", // Assuming height is an Int
+                style = MaterialTheme.typography.headlineLarge
+            )
+            Text(
+                text = "weight: ${pokemonDetail!!.weight}", // Assuming height is an Int
+                style = MaterialTheme.typography.headlineLarge
+            )
+            //Text(
+                //text = "type: ${pokemonDetail!!.type}", // Assuming height is an Int
+                //style = MaterialTheme.typography.headlineLarge
+            //)
+
         }
     } else {
         // Handle the case when details are not available
@@ -225,6 +244,7 @@ fun PokemonDetail(
         onDispose { }
     }
 }
+
 
 
 
