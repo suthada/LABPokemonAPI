@@ -186,7 +186,7 @@ data class PokemonDetail(
     val name: String,
     val height: Int,
     val weight: Int,
-    val type: String
+    //val type: String
 )
 
 @Composable
